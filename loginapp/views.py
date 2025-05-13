@@ -6,7 +6,7 @@ from django.contrib.auth.models import User
 
 def index(request):
 	if request.user.is_authenticated:
-	   name=request.user.username
+		name=request.user.username
 	return render(request, "index.html", locals())
 
 def login(request):
@@ -31,14 +31,14 @@ def logout(request):
 
 def adduser(request):	
 	try:
-		user=User.objects.get(username="test")
+		user=User.objects.get(username="狗東西拉")
 	except:
 		user=None
 	if user!=None:
 		message = user.username + " 帳號已建立!"
 		return HttpResponse(message)
 	else:	# 建立 test 帳號			
-		user=User.objects.create_user("test","test@test.com.tw","a123456!")
+		user=User.objects.create_user("狗東西拉","doges@test.com.tw","a123456!")
 		user.first_name="wen" # 姓名
 		user.last_name="lin"  # 姓氏
 		user.is_staff=True	# 工作人員狀態
